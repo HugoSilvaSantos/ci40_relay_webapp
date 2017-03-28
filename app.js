@@ -1,4 +1,3 @@
-// Dependencies
 
 var express = require('express');
 var path = require('path');
@@ -8,13 +7,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // https://nodejs.org/api/child_process.html
 var execFile = require('child_process').execFile //run shell commands. Assync proc
-
 var routes = require('./routes/index');
-
 var app = express();
-// server configs
-// const hostname = '0.0.0.0';
-// const port = 3000;
+
 
 //------------------------------------------------------------------------------
 // view engine setup
@@ -29,7 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //Routes
 app.use('/', routes);
@@ -91,10 +85,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-//------------------------------------------------------------------------------
-// var server = app.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
-
 
